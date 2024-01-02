@@ -21,10 +21,10 @@ export function Word(props: WordProps) {
   const words = typeof props.word === "string" ? [props.word] : props.word
   const x = words.map((word) => {
     return (
-      <>
+      <span key={word}>
         {word}
         <br />
-      </>
+      </span>
     )
   })
   const wordElements = wordContainerStyles.map(
