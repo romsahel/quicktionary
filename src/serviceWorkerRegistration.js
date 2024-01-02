@@ -21,9 +21,13 @@ const isLocalhost = Boolean(
 )
 
 export function register(config) {
+  if (typeof process == "undefined") {
+    return
+  }
   console.log({
     isProduction: process.env.NODE_ENV === "production",
     hasServiceWorker: "serviceWorker" in navigator,
+    url: `${process.env.PUBLIC_URL}/service-worker.js`,
   })
   if (process.env.NODE_ENV === "production" && "serviceWorker" in navigator) {
     // The URL constructor is available in all browsers that support SW.
